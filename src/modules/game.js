@@ -1,11 +1,12 @@
 let classifier;
-let imageModelURL = "./my_model/";
+let imageModelURL = "https://teachablemachine.withgoogle.com/models/a61jTLvDH/";
 let video;
 let flippedVideo;
 let label = "WAITING";
 let snake;
 
 function preload() {
+  console.log(imageModelURL + "model.json");
   classifier = ml5.imageClassifier(imageModelURL + "model.json");
 }
 

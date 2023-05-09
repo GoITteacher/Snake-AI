@@ -4,7 +4,10 @@
   "description": "",
   "homepage": "https://GoITteacher.github.io/snake-ai",
   "scripts": {
-    "push": "git add . && git commit -m 'update'; git push;",
+    
+    "prepush": "git add .",
+    "push": "git commit -m 'update'",
+    "postpush": "git push",
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /snake-ai/"
   },
