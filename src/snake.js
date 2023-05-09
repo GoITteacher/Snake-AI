@@ -1,7 +1,7 @@
 class Snake {
   constructor() {
     this.body = [{ x: 0, y: 0 }];
-    this.direction = "right";
+    this.direction = 'right';
     this.length = 1;
     this.fruit = { x: 0, y: 0 };
     this.score = 0;
@@ -25,16 +25,16 @@ class Snake {
     }
 
     switch (this.direction) {
-      case "up":
+      case 'up':
         newHead.y -= this.speed;
         break;
-      case "down":
+      case 'down':
         newHead.y += this.speed;
         break;
-      case "left":
+      case 'left':
         newHead.x -= this.speed;
         break;
-      case "right":
+      case 'right':
         newHead.x += this.speed;
         break;
     }
@@ -67,7 +67,7 @@ class Snake {
       try {
         rect(this.body[i].x, this.body[i].y, this.boxSize, this.boxSize);
       } catch {
-        console.log("Error 58 - ", i);
+        console.log('Error 58 - ', i);
       }
     }
   }
@@ -86,14 +86,19 @@ class Snake {
   checkCollision() {
     let head = this.body[this.body.length - 1];
 
-    if (
-      head.x < 0 ||
-      head.x >= this.boxWidth ||
-      head.y < 0 ||
-      head.y >= this.boxHeight
-    ) {
-      return true;
-    }
+    // if (
+    //   head.x < 0 ||
+    //   head.x >= this.boxWidth ||
+    //   head.y < 0 ||
+    //   head.y >= this.boxHeight
+    // ) {
+    //   return true;
+    // }
+
+    if (head.x < 1) head.x += this.boxWidth;
+    if (head.y < 1) head.y += this.boxHeight;
+    if (head.x > this.boxWidth - this.boxSize) head.x -= this.boxWidth;
+    if (head.y > this.boxHeight - this.boxSize) head.y -= this.boxHeight;
 
     for (let i = 0; i < this.body.length - 1; i++) {
       if (this.body[i].x === head.x && this.body[i].y === head.y) {
@@ -130,7 +135,7 @@ class Snake {
 
   reset() {
     this.body = [{ x: 0, y: 0 }];
-    this.direction = "right";
+    this.direction = 'right';
     this.length = 1;
     this.fruit = { x: 0, y: 0 };
     this.score = 0;
