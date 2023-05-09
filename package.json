@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://GoITteacher.github.io/Snake-Ai",
+  "homepage": "https://goitteacher.github.io/Snake-Ai",
   "scripts": {
     "prepush": "git add .",
     "push": "git commit -m 'update'",
