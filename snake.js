@@ -86,14 +86,10 @@ class Snake {
   checkCollision() {
     let head = this.body[this.body.length - 1];
 
-    if (
-      head.x < 0 ||
-      head.x >= this.boxWidth ||
-      head.y < 0 ||
-      head.y >= this.boxHeight
-    ) {
-      return true;
-    }
+    if (head.x < 1) head.x += this.boxWidth;
+    if (head.y < 1) head.y += this.boxHeight;
+    if (head.x > this.boxWidth - this.boxSize) head.x -= this.boxWidth;
+    if (head.y > this.boxHeight - this.boxSize) head.y -= this.boxHeight;
 
     for (let i = 0; i < this.body.length - 1; i++) {
       if (this.body[i].x === head.x && this.body[i].y === head.y) {
