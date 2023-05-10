@@ -1,5 +1,6 @@
 let classifier;
-let imageModelURL = "https://teachablemachine.withgoogle.com/models/a61jTLvDH/";
+// let imageModelURL = "https://teachablemachine.withgoogle.com/models/a61jTLvDH/";
+let imageModelURL = "https://teachablemachine.withgoogle.com/models/rXAKooUnb/";
 let video;
 let flippedVideo;
 let label = "WAITING";
