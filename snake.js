@@ -1,11 +1,15 @@
 class Snake {
   constructor() {
-    this.body = [{ x: 0, y: 0 }];
+    this.body = [
+      { x: 0, y: 0 },
+      { x: 0, y: 0 },
+      { x: 0, y: 0 },
+    ];
     this.direction = "right";
     this.length = 1;
     this.fruit = { x: 0, y: 0 };
     this.score = 0;
-    this.speed = 5;
+    this.speed = 20;
     this.boxSize = 20;
     this.boxWidth = 500;
     this.boxHeight = 400;
@@ -43,11 +47,11 @@ class Snake {
     this.body.push(newHead);
 
     if (this.checkCollision()) {
-      this.reset();
+      //this.reset();
     }
 
     if (this.checkFruitCollision()) {
-      this.length++;
+      this.body.unshift({ ...this.body[0] });
       this.score++;
       this.generateFruit();
     }
@@ -63,6 +67,7 @@ class Snake {
 
   drawSnake() {
     fill(255);
+    console.log(this.body.length);
     for (let i = 0; i < this.body.length; i++) {
       try {
         rect(this.body[i].x, this.body[i].y, this.boxSize, this.boxSize);

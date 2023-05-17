@@ -5,6 +5,8 @@ let video;
 let flippedVideo;
 let label = "WAITING";
 let snake;
+let FPS = 10;
+let counter = 0;
 
 function preload() {
   console.log(imageModelURL + "model.json");
@@ -21,12 +23,14 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  counter++;
+  if (counter % FPS === 0) {
+    background(0);
 
+    snake.update();
+    snake.draw();
+  }
   image(flippedVideo, 500, 0);
-  snake.update();
-  snake.draw();
-
   fill(255);
   textSize(16);
   textAlign(CENTER);
